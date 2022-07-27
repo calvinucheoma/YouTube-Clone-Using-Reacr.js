@@ -1,19 +1,19 @@
-import React from 'react';
-import './Video.css';
-import YouTube from 'react-youtube';
+// import React from 'react';
+// import './Video.css';
+// import YouTube from 'react-youtube';
 
 
 
-const Video = ({videoId}) => {
+// const Video = ({videoId}) => {
 
-  return (
+//   return (
 
-    <div>
-       <YouTube videoId={videoId} />
-    </div>
+//     <div>
+//        <YouTube videoId={videoId} />
+//     </div>
 
-  )
+//   )
 
-};
+// };
 
-export default Video;
+// export default Video;

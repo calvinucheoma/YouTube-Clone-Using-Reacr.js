@@ -11,7 +11,7 @@ const RecommendedVideos = () => {
 
         <h2> Recommended Videos </h2>
 
-        <div className="suggestedVideoCard">
+        <div className="videos">
 
             <VideoCard
                  title='Bayern Munich vs Bremer SV 13-0 Extеndеd Hіghlіghts & Goals 2022 HD'

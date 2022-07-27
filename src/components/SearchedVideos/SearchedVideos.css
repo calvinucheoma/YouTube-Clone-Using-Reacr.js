@@ -25,6 +25,9 @@
 
 @media(max-width: 900px) {
     .searchedVideosFilter {
+        display: flex;
+        align-items: center;
+        color: #606060;
         font-size: 6px !important;
     }
 
@@ -34,9 +37,19 @@
 
     .searchedVideos {
         padding: 10px 10px;
+        flex: 0.8;
+        padding: 20px 20px;
     }
 
     .searchedVideosFilter > h2 {
         margin-left: 5px;
+    }
+
+    .searchedVideos>hr {
+        height: 1px;
+        border: 0;
+        background-color: lightgray;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

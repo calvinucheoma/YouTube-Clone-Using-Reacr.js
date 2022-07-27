@@ -1,96 +1,96 @@
-import React, {useEffect, useState} from 'react';
-import VideoCard from './../VideoCard/VideoCard';
-import './SuggestedVideosTemplate.css';
-import axios from 'axios';
-import {DateTime} from 'luxon';
-import { Link } from 'react-router-dom';
-import {CircularProgress} from '@mui/material';
-import {Alert} from '@mui/lab';
+// import React, {useEffect, useState} from 'react';
+// import VideoCard from './../VideoCard/VideoCard';
+// import './SuggestedVideosTemplate.css';
+// import axios from 'axios';
+// import {DateTime} from 'luxon';
+// import { Link } from 'react-router-dom';
+// import {CircularProgress} from '@mui/material';
+// import {Alert} from '@mui/lab';
 
 
-const SuggestedVideosTemplate = () => {
+// const SuggestedVideosTemplate = () => {
 
-    const [videoCards, setVideoCards] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
+//     const [videoCards, setVideoCards] = useState([]);
+//     const [isLoading, setIsLoading] = useState(true);
+//     const [isError, setIsError] = useState(false);
 
-    useEffect(() => {
-      axios
-        .get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=9&regionCode=PK&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
-        .then((response) => {
-          createVideoCards(response.data.items);
-        })
-        .catch((error) => {
-          console.log(error);
-          setIsError(true);
-        })
-    }, []);
+//     useEffect(() => {
+//       axios
+//         .get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=9&regionCode=PK&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+//         .then((response) => {
+//           createVideoCards(response.data.items);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//           setIsError(true);
+//         })
+//     }, []);
 
-    const createVideoCards = async (videoItems) => {
+//     const createVideoCards = async (videoItems) => {
 
-      let newVideoCards = [];
+//       let newVideoCards = [];
 
-      for (const video of videoItems) {
-        const videoId = video.id;
-        const snippet = video.snippet;
-        const channelId = snippet.channelId;
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
-        const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
-        const title = snippet.title;
-        const image = snippet.thumbnails.medium.url;
-        const views = video.statistics.viewCount;
-        const timestamp = DateTime.fromISO(snippet.publishedAt).toRelative();
-        const channel = snippet.channelTitle;
+//       for (const video of videoItems) {
+//         const videoId = video.id;
+//         const snippet = video.snippet;
+//         const channelId = snippet.channelId;
+//         const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+//         const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
+//         const title = snippet.title;
+//         const image = snippet.thumbnails.medium.url;
+//         const views = video.statistics.viewCount;
+//         const timestamp = DateTime.fromISO(snippet.publishedAt).toRelative();
+//         const channel = snippet.channelTitle;
 
-        newVideoCards.push({
-          videoId,
-          image,
-          title,
-          channel,
-          views,
-          timestamp,
-          channelImage
-        });
-      };
+//         newVideoCards.push({
+//           videoId,
+//           image,
+//           title,
+//           channel,
+//           views,
+//           timestamp,
+//           channelImage
+//         });
+//       };
 
-      setVideoCards(newVideoCards);
-      setIsLoading(false);
+//       setVideoCards(newVideoCards);
+//       setIsLoading(false);
 
-    };
+//     };
 
-    if(isError) {
-      return <Alert severity="error" className='loading'>No Results found!</Alert>
-    }
+//     if(isError) {
+//       return <Alert severity="error" className='loading'>No Results found!</Alert>
+//     }
 
 
-    return (
+//     return (
         
-        <div className='suggestedVideos'>
+//         <div className='suggestedVideos'>
 
-            { isLoading ? <CircularProgress className='loading' color='secondary' /> : null }
+//             { isLoading ? <CircularProgress className='loading' color='secondary' /> : null }
 
-            <div className="suggestedVideoCard">
-                {
-                  videoCards.map(item => {
-                    return (
-                            <Link key={item.videoId} to={`/video/${item.videoId}`}>
-                              <VideoCard 
-                                title={item.title}
-                                imageCard={item.image}
-                                views={item.views}
-                                timestamp={item.timestamp}
-                                channel={item.channel}
-                                imageAvatar={item.channelImage}
-                              />
-                            </Link>
-                    )
-                  })
-                }
+//             <div className="suggestedVideoCard">
+//                 {
+//                   videoCards.map(item => {
+//                     return (
+//                             <Link key={item.videoId} to={`/video/${item.videoId}`}>
+//                               <VideoCard 
+//                                 title={item.title}
+//                                 imageCard={item.image}
+//                                 views={item.views}
+//                                 timestamp={item.timestamp}
+//                                 channel={item.channel}
+//                                 imageAvatar={item.channelImage}
+//                               />
+//                             </Link>
+//                     )
+//                   })
+//                 }
 
-            </div>
+//             </div>
 
-        </div>
-    )
-};
+//         </div>
+//     )
+// };
 
-export default SuggestedVideosTemplate;
+// export default SuggestedVideosTemplate;
