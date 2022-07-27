@@ -1,0 +1,35 @@
+.suggestedVideos {
+    flex: 0.8;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    padding-bottom: 0;
+}
+
+.suggestedVideos > h2 {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.suggestedVideoCard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.suggestedVideoCard > * {
+    margin-left: 5%;
+}
+
+@media(max-width: 900px) {
+    .suggestedVideos {
+        padding: 20px 10px;
+        padding-bottom: 0;
+    }
+
+    .suggestedVideos > h2 {
+        margin-left: 2.5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+
+}

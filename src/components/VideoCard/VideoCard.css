@@ -1,0 +1,75 @@
+.videoCard{
+    margin-bottom: 40px;
+    width: 270px;
+}
+
+.videoThumbnail{
+    height: 140px;
+    width: 250px;
+    object-fit: contain;
+}
+
+.videoInfo{
+    display: flex;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+
+.videoText{
+    margin-left: 15px;
+}
+
+.videoText > h4{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.videoText > p{
+    font-size: 14px;
+    color: gray;
+}
+
+.videoAvatar{
+    height: 30px !important;
+    width: 30px !important;
+}
+
+@media (max-width: 586px) {
+    
+    .videoCard {
+            margin-bottom: 20px;
+            width: 125px;
+        }
+
+    .videoThumbnail {
+        height: 60px;
+        width: 115px;
+        object-fit: contain;
+    }
+
+    .videoInfo {
+        display: flex;
+        margin-top: 5px;
+        padding-right: 15px;
+    }
+
+    .videoText {
+        margin-left: 7.5px;
+    }
+
+    .videoText > h4 {
+        font-size: 7px;
+        margin-bottom: 2.5px;
+    }
+
+    .videoText>p {
+        font-size: 7px;
+        color: gray;
+    }
+
+    .videoAvatar {
+        height: 15px !important;
+        width: 15px !important;
+    }
+
+}

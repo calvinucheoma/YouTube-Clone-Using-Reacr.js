@@ -1,0 +1,22 @@
+.videoPlayer {
+    display: flex;
+    justify-content: center;
+}
+
+.videoPlayerDetails {
+    flex: 0.8;
+}
+
+
+.videoPlayerVdeo, .videoPlayerInfo {
+    margin: 5% 5% 5% 10%;
+}
+
+.videoPlayerSuggested {
+    flex: 0.2;
+    margin-top: 0 !important;
+}
+
+.videoPlayerInfo {
+    flex-direction: row;
+}
